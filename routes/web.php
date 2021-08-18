@@ -17,3 +17,5 @@ Route::get('/', 'SessionController@inicio' );
 Route::get('login', 'SessionController@credenciales' );
 Route::post('validar', 'SessionController@autenticar' );
 Route::get('salir', 'SessionController@salida' );
+
+Route::resource('usuarios','UsuarioController');
