@@ -11,6 +11,7 @@
 @endcan
 
 
+
 <table class="table table-striped">
     <thead>
       <tr>
@@ -40,11 +41,13 @@
                 @can('update', $usuario)
                   <a href="/usuarios/{{$usuario->id}}/edit" class="btn btn-warning">MODIFICAR</a>                
                 @endcan
-                <form action="/usuarios/{{$usuario->id}}" method="POST" style="display: inline">
-                    @method('DELETE')
-                    @csrf
-                    <input type="submit" class="btn btn-danger" value="BORRAR">
-                </form>
+                @can('delete', $usuario)
+                  <form action="/usuarios/{{$usuario->id}}" method="POST" style="display: inline">
+                      @method('DELETE')
+                      @csrf
+                      <input type="submit" class="btn btn-danger" value="BORRAR">
+                  </form>
+                @endcan
                 
 
             </td>

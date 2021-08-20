@@ -9,6 +9,11 @@ class UsuarioPolicy
 {
     use HandlesAuthorization;
 
+    public function seleccionar(User $autenticado, Usuario $recurso ){
+        return true;
+
+    }
+
     /**
      * Determine whether the user can view any models.
      *
@@ -40,8 +45,6 @@ class UsuarioPolicy
      */
     public function create(Usuario $user)
     {
-        var_dump ($user->nombre);
-
         if($user->rol == "administrador")
             return true;
         else 
@@ -72,7 +75,10 @@ class UsuarioPolicy
      */
     public function delete(Usuario $user, Usuario $usuario)
     {
-        //
+        if (count($usuario->Materias)==0)
+            return true;
+        else
+            return true;
     }
 
     /**

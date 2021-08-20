@@ -71,6 +71,7 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $seleccionado = Usuario::find($id);
+        $this->authorize('update', $seleccionado);
         return view('usuarios.mostrar2',compact('seleccionado'));
 
     }
@@ -101,7 +102,13 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         $seleccionado = Usuario::find($id);
-        $seleccionado->delete();
-        return redirect('/usuarios');
+
+        try{
+            $seleccionado->delete();
+            return redirect('/usuarios');
+        } catch (\Illuminate\Database\QueryException $e){
+            echo "NO ES POSIBLE BORRAR";
+        }
+     
     }
 }

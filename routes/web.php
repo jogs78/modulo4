@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'SessionController@inicio' );
-Route::get('login', 'SessionController@credenciales' );
+Route::get('login', 'SessionController@credenciales' )->name('login');
 Route::post('validar', 'SessionController@autenticar' );
 Route::get('salir', 'SessionController@salida' );
 
-Route::resource('usuarios','UsuarioController');
+Route::resource('usuarios','UsuarioController')->middleware('auth');
