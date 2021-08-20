@@ -37,7 +37,9 @@ class SessionController extends Controller
 
     public function salida(){
         Auth::logout();
+
         return redirect('/');
+
     }
 
 }
