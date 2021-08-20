@@ -13,6 +13,11 @@
     <input type="text"  placeholder="Nombre" name="nombre">
   </div>
   <div class="form-group">
+  Contraseña
+    <input type="password"  placeholder="Contraseña" name="password">
+    <input type="password"  placeholder="Repita la contraseña" name="password2">
+  </div>
+  <div class="form-group">
     Rol
     <select name="rol">
       <option value="usuario">Usuario</option>

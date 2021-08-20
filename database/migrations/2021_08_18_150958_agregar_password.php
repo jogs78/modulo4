@@ -15,7 +15,7 @@ class AgregarPassword extends Migration
     {
         Schema::table('usuarios', function (Blueprint $table) {
             //
-            $table->string("pasword",100)->nullable();
+            $table->string("password",100)->nullable();
         });
     }
 

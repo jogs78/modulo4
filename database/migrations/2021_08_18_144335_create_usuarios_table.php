@@ -16,7 +16,7 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string("nombre",45)->nullable();
-            $table->string("rol",10)->default("usuario");
+            $table->string("rol",15)->default("usuario");
             $table->timestamps();
         });
     }

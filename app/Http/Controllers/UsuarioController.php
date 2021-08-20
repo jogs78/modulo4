@@ -36,9 +36,15 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->input('password') != $request->input('password2')){
+            echo "NO ESTAN BIEN LOS PASSWORDS, INTENTA DE NUEVO";
+            return;
+        }
+     
         $nuevo = new Usuario;
         $nuevo->nombre = $request->input('nombre');
         $nuevo->rol = $request->input('rol');
+        $nuevo->password = $request->input('password');
         $nuevo->save();
         return redirect('/usuarios');
     }
